@@ -1,3 +1,4 @@
 # Sorting Visualizer
 My very first project.
-Learning React JS is a challenge.
+A visualization for sorting algorithms such as merge, heap, quick, insertion, and bubble sort.
+Link: https://azndude1324.github.io/Sorting-Visualizer/
