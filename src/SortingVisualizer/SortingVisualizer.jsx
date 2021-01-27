@@ -31,7 +31,9 @@ export default class SortingVisualizer extends React.Component {
     }
 
     handleChange(event){
-        this.setState({arrLength: event.target.value});
+        let { value, min, max } = event.target;
+        value = Math.max(Number(min), Math.min(Number(max), Number(value)));
+        this.setState({ arrLength: value });
     }
 
     resetArray() {
@@ -268,7 +270,7 @@ export default class SortingVisualizer extends React.Component {
                     <h2>Sorting Visualizer by Ed</h2>
                     <h4>
                         <label>Size of Array[5,100]: </label>
-                        <input type="number" min="5" max="100" value={this.state.value} onChange={this.handleChange} />
+                        <input type="number" value={this.state.value} onChange={this.handleChange} min="5" max="100" />
                         <input type="submit" value="Generate" onClick={() => this.resetArray()}/>
                     </h4>
                     <button id = "mergeSort" onClick={() => this.mergeSort()}>Merge Sort</button>
