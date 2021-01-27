@@ -7,7 +7,7 @@ import { getInsertionSortAnimations } from '../sortingAlgorithms/insertionSort.j
 import './SortingVisualizer.css';
 
 // Change this value for the speed of the animations.
-var ANIMATION_SPEED_MS = 5;
+var ANIMATION_SPEED_MS = 3;
 
 // This is the main color of the array bars.
 const PRIMARY_COLOR = 'grey';
@@ -109,30 +109,30 @@ export default class SortingVisualizer extends React.Component {
         const animations = getHeapSortAnimations(this.state.array);
 
         for (let i = 0; i < animations.length; i++) {
-            const isColorChange = (animations[i][0] === "comparison1") || (animations[i][0] === "comparison2")
+            const isColorChange = (animations[i][0] === "comparision1") || (animations[i][0] === "comparision2");
             const arrayBars = document.getElementsByClassName('array-bar');
-            
-            if (isColorChange) {
-                const color = (animations[i][0] === "comparison1") ? SECONDARY_COLOR : PRIMARY_COLOR;
-                const [temp, barOneIdx, barTwoIdx] = animations[i];
-                const barOneStyle = arrayBars[barOneIdx].style;
-                const barTwoStyle = arrayBars[barTwoIdx].style;
+
+            if(isColorChange === true) {
+                const color = (animations[i][0] === "comparision1") ? SECONDARY_COLOR : PRIMARY_COLOR;
+                const [temp, barOneIndex, barTwoIndex] = animations[i];
+                const barOneStyle = arrayBars[barOneIndex].style;
+                const barTwoStyle = arrayBars[barTwoIndex].style;
 
                 setTimeout(() => {
                     barOneStyle.backgroundColor = color;
                     barTwoStyle.backgroundColor = color;
-                }, i * ANIMATION_SPEED_MS);
-            } else {
-                const [swap, barIndex, newHeight] = animations[i];
-                if (barIndex === -1) {
-                    continue;
-                }
+                },i * ANIMATION_SPEED_MS);
+            }
+            else {
+                const [temp, barIndex, newHeight] = animations[i];
                 const barStyle = arrayBars[barIndex].style;
+
                 setTimeout(() => {
                     barStyle.height = `${newHeight}px`;
-                }, i * ANIMATION_SPEED_MS);
+                },i * ANIMATION_SPEED_MS);  
             }
         }
+
 
         const restore = parseInt(ANIMATION_SPEED_MS * animations.length / 2 + 3000);
         setTimeout(() => this.restoreSortButtons(), restore);
