@@ -1,19 +1,19 @@
 .panel-container {
     margin: auto;
-    width: 100%;
-    padding: 10px;
-    background-color: black;
+    width: 98.5%;
+    padding: 15px;
+    background: lightcoral;
 }
 
-.slidecontainer {
+.slidecontainerNumArray {
     width: 100%;
 }
 
 .slider {
     -webkit-appearance: none;
     appearance: none;
-    width: 30%;
-    height: 25px;
+    width: 100px;
+    height: 10px;
     background: grey;
     outline: none;
     opacity: 0.7;
@@ -28,15 +28,15 @@
 .slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    width: 25px;
-    height: 25px;
+    width: 10px;
+    height: 10px;
     background: green;
     cursor: pointer;
 }
 
-.slider::-moz-range-thumb {
-    width: 25px;
-    height: 25px;
+.slider::-moz {
+    width: 10px;
+    height: 10px;
     background: green;
     cursor: pointer;
 }
